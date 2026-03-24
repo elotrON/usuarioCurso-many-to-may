@@ -1,6 +1,4 @@
-package dto;
-
-import entity.Curso;
+package com.example.usuarioCursos.dto;
 
 import java.util.Set;
 
@@ -24,11 +22,11 @@ public class AlumnoResponse {
     }
 
     public Set<Integer> getCursos() {
-        return cursos;
+        return idsCursos;
     }
 
-    public void setCursos(Set<Curso> cursos) {
-        this.cursos = cursos;
+    public void setCursos(Set<Integer> cursos) {
+        this.idsCursos = cursos;
     }
 
     public String getDireccion() {

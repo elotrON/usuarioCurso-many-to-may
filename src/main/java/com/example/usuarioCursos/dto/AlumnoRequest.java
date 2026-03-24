@@ -1,4 +1,4 @@
-package dto;
+package com.example.usuarioCursos.dto;
 
 public class AlumnoRequest {
 

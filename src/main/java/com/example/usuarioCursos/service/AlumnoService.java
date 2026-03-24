@@ -1,11 +1,11 @@
-package service;
+package com.example.usuarioCursos.service;
 
-import entity.Alumno;
-import dto.AlumnoRequest;
-import dto.AlumnoResponse;
+import com.example.usuarioCursos.entity.Alumno;
+import com.example.usuarioCursos.dto.AlumnoRequest;
+import com.example.usuarioCursos.dto.AlumnoResponse;
 import org.springframework.stereotype.Service;
-import repository.AlumnoRepository;
-import repository.CursoRepository;
+import com.example.usuarioCursos.repository.AlumnoRepository;
+import com.example.usuarioCursos.repository.CursoRepository;
 
 @Service
 public class AlumnoService {

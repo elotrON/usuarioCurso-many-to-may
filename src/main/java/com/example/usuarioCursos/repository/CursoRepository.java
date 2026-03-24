@@ -1,7 +1,7 @@
-package repository;
+package com.example.usuarioCursos.repository;
 
 
-import entity.Curso;
+import com.example.usuarioCursos.entity.Curso;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 // Curso → la entidad
