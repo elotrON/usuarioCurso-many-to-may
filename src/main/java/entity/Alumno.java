@@ -2,6 +2,9 @@ package entity;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "alumnos")
 public class Alumno {
@@ -16,7 +19,7 @@ public class Alumno {
     @Column
     private String apellidos;
 
-    @Column
+    @Column(nullable = false, unique = true)
     private String dni;
 
     @Column
@@ -25,6 +28,18 @@ public class Alumno {
     @Column
     private String telefono;
 
+    @ManyToMany
+    @JoinTable(
+            name = "alumno_curso",
+            joinColumns = @JoinColumn(name = "id_alumno"),
+            inverseJoinColumns = @JoinColumn(name = "id_curso")
+    )
+
+    private Set<Curso> cursos = new HashSet<>();
+
+    public Alumno(){
+
+    }
 
     public String getApellidos() {
         return apellidos;
@@ -73,4 +88,27 @@ public class Alumno {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
+    //-----------------------------------
+    //      H E L P E R S
+    //-----------------------------------
+
+    public Set<Curso> getCursos() {
+        return cursos;
+    }
+
+    public void setCursos(Set<Curso> cursos) {
+        this.cursos = cursos;
+    }
+
+    public void addCurso(Curso curso) {
+        this.cursos.add(curso);
+        curso.getAlumnos().add(this);
+    }
+
+    public void removeCurso(Curso curso) {
+        this.cursos.remove(curso);
+        curso.getAlumnos().remove(this);
+    }
+
 }

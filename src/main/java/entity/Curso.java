@@ -2,6 +2,9 @@ package entity;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "cursos")
 public class Curso {
@@ -18,6 +21,12 @@ public class Curso {
 
     @Column
     private String habilidades;
+
+    @ManyToMany(mappedBy = "cursos")
+    private Set<Alumno> alumnos = new HashSet<>();
+
+    public Curso() {
+    }
 
 
     public int getDuracion() {
@@ -51,4 +60,17 @@ public class Curso {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    //-----------------------------------
+    //      H E L P E R S
+    //-----------------------------------
+
+    public Set<Alumno> getAlumnos() {
+        return alumnos;
+    }
+
+    public void setAlumnos(Set<Alumno> alumnos) {
+        this.alumnos = alumnos;
+    }
+
 }
