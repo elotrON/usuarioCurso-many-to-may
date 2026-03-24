@@ -26,7 +26,7 @@ public class AlumnoService {
     public AlumnoResponse crearAlumno(AlumnoRequest alumnoRequest){
         Alumno alumno = new Alumno();
         alumno.setNombre(alumnoRequest.getNombre());
-        alumno.setApellidos(alumno.getApellidos());
+        alumno.setApellidos(alumnoRequest.getApellidos());
         alumno.setDni(alumnoRequest.getDni());
         alumno.setDireccion(alumnoRequest.getDireccion());
         alumno.setTelefono(alumnoRequest.getTelefono());
@@ -64,11 +64,13 @@ public class AlumnoService {
     private AlumnoResponse toAlumnoResponse(Alumno alumno){
         AlumnoResponse alumnoResponse = new AlumnoResponse();
 
+        alumnoResponse.setId(alumno.getId());
         alumnoResponse.setNombre(alumno.getNombre());
         alumnoResponse.setApellidos(alumno.getApellidos());
         alumnoResponse.setDni(alumno.getDni());
         alumnoResponse.setDireccion(alumno.getDireccion());
         alumnoResponse.setTelefono(alumno.getTelefono());
+
 
         return alumnoResponse;
     }
