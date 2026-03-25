@@ -107,6 +107,12 @@ public class AlumnoService {
     }
 
     // obtener usuario por id
+    public AlumnoResponse obtenerAlumno(Integer id){
+        Alumno alumno = alumnoRepository.findById(id).orElse(null);
+        if (alumno == null) return null;
+
+        return toResponse(alumno);
+    }
 
 
     // obtener curso por id

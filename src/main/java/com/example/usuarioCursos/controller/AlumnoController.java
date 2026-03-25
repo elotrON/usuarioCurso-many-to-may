@@ -52,8 +52,14 @@ public class AlumnoController {
      * @return
      */
     @DeleteMapping("/alumno/{idAlumno}/curso/{idCurso}")
-    private AlumnoResponse borrarCursoDeAlumno(@PathVariable Integer idAlumno, @PathVariable Integer idCurso){
+    public AlumnoResponse borrarCursoDeAlumno(@PathVariable Integer idAlumno, @PathVariable Integer idCurso){
         return alumnoService.borrarCursoUsuario(idAlumno,idCurso);
+    }
+
+
+    @GetMapping("/alumno/{idAl}")
+    public AlumnoResponse obtenerAlumnoPorId(@PathVariable Integer idAl){
+        return alumnoService.obtenerAlumno(idAl);
     }
 
 
